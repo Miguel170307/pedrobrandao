@@ -45,13 +45,49 @@
         <h2 id="gallery-title">Brands em ação.</h2>
         <p>Treinos, conquistas e muita troca de bola.</p>
       </div>
-      <div class="gallery-grid">
-        <video controls playsinline preload="none" poster="assets/ready.jpg" aria-label="Vídeo do Brands jogando tênis de mesa">
-          <source src="assets/jogo.mp4" type="video/mp4">
-          Seu navegador não suporta vídeo. <a href="assets/jogo.mp4">Abrir vídeo</a>.
-        </video>
-        <img src="assets/podium.jpg" alt="Pedro com medalha no pódio do TMB Platinum" loading="lazy">
-        <img src="assets/serve.jpg" alt="Pedro concentrado antes de sacar" loading="lazy">
+      <div class="carousel" role="region" aria-roledescription="carrossel" aria-label="Fotos e vídeo do Brands">
+        <div class="carousel-stage" tabindex="0" aria-label="Use as setas do teclado para mudar de foto">
+          <figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 de 6">
+            <img src="assets/hero.jpg" alt="Pedro preparando um saque" loading="lazy">
+            <figcaption>Concentração em cada ponto.</figcaption>
+          </figure>
+          <figure class="carousel-slide" hidden role="group" aria-roledescription="slide" aria-label="2 de 6">
+            <img src="assets/ready.jpg" alt="Pedro em posição de recepção" loading="lazy">
+            <figcaption>Pronto para a próxima troca.</figcaption>
+          </figure>
+          <figure class="carousel-slide" hidden role="group" aria-roledescription="slide" aria-label="3 de 6">
+            <img src="assets/podium.jpg" alt="Pedro com medalha no pódio do TMB Platinum" loading="lazy">
+            <figcaption>Momentos que fazem parte da trajetória.</figcaption>
+          </figure>
+          <figure class="carousel-slide" hidden role="group" aria-roledescription="slide" aria-label="4 de 6">
+            <img src="assets/champion.jpg" alt="Pedro escrevendo no mural dos campeões" loading="lazy">
+            <figcaption>Uma história construída dentro do jogo.</figcaption>
+          </figure>
+          <figure class="carousel-slide" hidden role="group" aria-roledescription="slide" aria-label="5 de 6">
+            <img src="assets/serve.jpg" alt="Pedro concentrado antes de sacar" loading="lazy">
+            <figcaption>Dedicação em cada treino.</figcaption>
+          </figure>
+          <figure class="carousel-slide" hidden role="group" aria-roledescription="slide" aria-label="6 de 6">
+            <video controls playsinline preload="none" poster="assets/ready.jpg" aria-label="Brands jogando tênis de mesa">
+              <source src="assets/jogo.mp4" type="video/mp4">
+              Seu navegador não suporta vídeo. <a href="assets/jogo.mp4">Abrir vídeo</a>.
+            </video>
+            <figcaption>Dê o play e veja o Brands em ação.</figcaption>
+          </figure>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-arrow" id="slide-prev" type="button" aria-label="Foto anterior">←</button>
+          <p id="slide-status" role="status" aria-live="polite" aria-atomic="true">1 de 6</p>
+          <button class="carousel-arrow" id="slide-next" type="button" aria-label="Próxima foto">→</button>
+        </div>
+        <div class="carousel-thumbnails" aria-label="Escolha uma foto ou vídeo">
+          <button type="button" data-slide="0" aria-label="Ver foto 1: Pedro preparando um saque" aria-pressed="true"><img src="assets/hero.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-slide="1" aria-label="Ver foto 2: Pedro em posição de recepção" aria-pressed="false"><img src="assets/ready.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-slide="2" aria-label="Ver foto 3: Pedro com medalha no pódio do TMB Platinum" aria-pressed="false"><img src="assets/podium.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-slide="3" aria-label="Ver foto 4: Pedro escrevendo no mural dos campeões" aria-pressed="false"><img src="assets/champion.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-slide="4" aria-label="Ver foto 5: Pedro concentrado antes de sacar" aria-pressed="false"><img src="assets/serve.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-slide="5" aria-label="Ver vídeo do Brands" aria-pressed="false"><img src="assets/ready.jpg" alt="" loading="lazy"><span aria-hidden="true">▶</span></button>
+        </div>
       </div>
     </section>
     <section class="contact" id="contato" aria-labelledby="contact-title">

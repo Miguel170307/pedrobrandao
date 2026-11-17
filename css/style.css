@@ -24,26 +24,40 @@ h1 em { color: var(--lime); font-style: normal; }
 h2 { font-size: clamp(36px, 4vw, 48px); }
 h3 { font-size: 23px; }
 p { margin: 18px 0; }
-.hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; padding-block: 38px 48px; }
+.hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; padding-block: 55px 72px; min-height: 650px; }
 .hero-copy > p:not(.eyebrow) { max-width: 490px; color: var(--muted); }
 .eyebrow { font-size: 13px; letter-spacing: 1.5px; font-weight: 700; color: var(--lime); margin: 0 0 18px; }
-.hero-photo { width: 100%; height: 420px; object-fit: cover; border-radius: 6px; }
+.hero-photo { width: 100%; height: 540px; object-fit: cover; border-radius: 6px; }
 .button { min-height: 56px; display: inline-flex; align-items: center; justify-content: center; gap: 28px; padding: 14px 24px; background: var(--lime); color: #172015; border: 0; border-radius: 5px; font-size: 18px; font-weight: 700; transition: transform .2s, filter .2s; }
 .button:hover { transform: translateY(-2px); filter: brightness(1.05); }
 :focus-visible { outline: 3px solid var(--lime); outline-offset: 5px; }
-.about { background: #eaece2; color: #172015; padding-block: 42px; }
+.about { background: #eaece2; color: #172015; padding-block: 75px; }
 .about .eyebrow { color: #3b5830; }
 .about-content { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
 .about p { margin-bottom: 0; }
 .lesson-info { border-left: 1px solid #17201540; padding-left: 36px; }
 .text-link { display: inline-block; font-size: 17px; font-weight: 700; margin-top: 18px; text-underline-offset: 4px; }
 .about :focus-visible, .contact :focus-visible { outline-color: #172015; }
-.gallery { padding-block: 38px 44px; }
+.gallery { padding-block: 70px 75px; }
 .gallery-heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 22px; }
 .gallery-heading p { color: var(--muted); margin: 0; font-size: 16px; }
-.gallery-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
-.gallery-grid img, .gallery-grid video { width: 100%; height: 215px; object-fit: cover; border-radius: 5px; background: #070c09; }
-.contact { background: var(--lime); color: #172015; padding-block: 34px; }
+/* Media carousel: manual navigation keeps reading and video playback comfortable. */
+.carousel { max-width: 960px; margin-inline: auto; }
+.carousel-stage { background: #080f0b; border-radius: 8px; overflow: hidden; }
+.carousel-slide { margin: 0; }
+.carousel-slide[hidden] { display: none; }
+.carousel-slide img, .carousel-slide video { display: block; width: 100%; height: 510px; object-fit: contain; background: #080f0b; }
+.carousel-slide figcaption { padding: 16px 22px; color: var(--muted); font-size: 17px; }
+.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 26px; margin-top: 18px; }
+.carousel-controls p { margin: 0; min-width: 65px; text-align: center; font-size: 17px; }
+.carousel-arrow { width: 56px; height: 56px; border: 1px solid #ffffff50; background: transparent; color: var(--cream); border-radius: 50%; font-size: 26px; }
+.carousel-arrow:hover { background: var(--lime); color: #172015; }
+.carousel-thumbnails { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 20px; }
+.carousel-thumbnails button { position: relative; padding: 3px; border: 2px solid transparent; background: transparent; border-radius: 5px; min-height: 52px; }
+.carousel-thumbnails button[aria-pressed="true"] { border-color: var(--lime); }
+.carousel-thumbnails img { display: block; width: 100%; height: 80px; object-fit: cover; border-radius: 2px; }
+.carousel-thumbnails span { position: absolute; inset: 0; display: grid; place-items: center; color: white; font-size: 24px; text-shadow: 0 1px 6px #000; }
+.contact { background: var(--lime); color: #172015; padding-block: 55px; }
 .contact-content { display: flex; justify-content: space-between; gap: 32px; align-items: center; }
 .contact p { margin-bottom: 0; }
 .button-dark { background: #172015; color: var(--cream); }
@@ -56,18 +70,19 @@ dialog :focus-visible { outline-color: #172015; }
   header { min-height: 78px; }
   nav { gap: 16px; }
   nav a { font-size: 15px; }
-  .hero { grid-template-columns: 1fr; gap: 24px; padding-block: 28px; }
-  .hero-photo { height: 260px; object-position: center 42%; }
+  .hero { grid-template-columns: 1fr; gap: 24px; padding-block: 36px 45px; min-height: auto; }
+  .hero-photo { height: 350px; object-position: center 42%; }
   .hero .button { width: 100%; }
-  .about { padding-block: 30px; }
+  .about { padding-block: 42px; }
   .about-content { grid-template-columns: 1fr; gap: 26px; }
   .lesson-info { border-left: 0; border-top: 1px solid #17201540; padding: 24px 0 0; }
-  .gallery { padding-block: 30px; }
+  .gallery { padding-block: 42px; }
   .gallery-heading { display: block; }
   .gallery-heading p { margin-top: 10px; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .gallery-grid video { grid-column: 1 / -1; height: 220px; }
-  .gallery-grid img { height: 160px; }
+  .carousel-slide img, .carousel-slide video { height: 330px; }
+  .carousel-slide figcaption { padding: 14px 16px; font-size: 16px; }
+  .carousel-thumbnails { gap: 8px; grid-template-columns: repeat(3, 1fr); }
+  .carousel-thumbnails img { height: 65px; }
   .contact-content { display: block; }
   .contact .button { width: 100%; margin-top: 20px; }
 }
