@@ -1,6 +1,8 @@
 const contactDialog = document.querySelector('dialog');
-const openButton = document.querySelector('#contact-open');
 const closeButton = document.querySelector('#contact-close');
 
-openButton.addEventListener('click', () => contactDialog.showModal());
+// Replace the preview dialog with the WhatsApp link when contact is confirmed.
+document.querySelectorAll('[data-contact-open]').forEach((button) => {
+  button.addEventListener('click', () => contactDialog.showModal());
+});
 closeButton.addEventListener('click', () => contactDialog.close());
