@@ -117,3 +117,33 @@ dialog :focus-visible { outline-color: #172015; }
 a.button { text-decoration: none; }
 .contact-note a { text-underline-offset: 4px; }
 .instagram-link { display: block; padding-block: 12px; text-align: center; font-size: 16px; font-weight: 600; text-underline-offset: 4px; }
+
+/* Unified carousel preview. */
+.carousel { position: relative; padding: 0 0 18px; overflow: hidden; border: 1px solid #ffffff18; border-radius: 16px; background: #080f0b; box-shadow: 0 18px 50px #0003; }
+.carousel-stage { border-radius: 0; }
+.carousel-slide img, .carousel-slide video { height: 510px; }
+.carousel-slide:not([hidden]) { animation: media-reveal .45s ease both; }
+.carousel-slide figcaption { padding: 16px 84px; text-align: center; }
+.carousel-controls { margin: 0; }
+.carousel-controls p { margin: 0; padding-block: 4px 12px; color: var(--muted); font-size: 15px; }
+.carousel-arrow { position: absolute; top: 235px; z-index: 2; background: #101714d9; border-color: #ffffff60; backdrop-filter: blur(8px); transition: background .2s, transform .2s; }
+#slide-prev { left: 18px; }
+#slide-next { right: 18px; }
+.carousel-arrow:hover { transform: scale(1.07); }
+.carousel-thumbnails { margin: 0; padding: 0 20px; gap: 10px; }
+.carousel-thumbnails button { transition: transform .2s, border-color .2s, opacity .2s; opacity: .65; }
+.carousel-thumbnails button:hover, .carousel-thumbnails button[aria-pressed="true"] { opacity: 1; transform: translateY(-3px); }
+.carousel-thumbnails img { height: 68px; }
+@keyframes media-reveal { from { opacity: .25; transform: translateX(12px); } to { opacity: 1; transform: translateX(0); } }
+@media(max-width:700px) {
+ .carousel-slide img, .carousel-slide video { height: 330px; }
+ .carousel-arrow { top: 143px; width: 46px; height: 46px; }
+ #slide-prev { left: 10px; } #slide-next { right: 10px; }
+ .carousel-slide figcaption { padding: 16px 22px; }
+ .carousel-thumbnails { padding-inline: 12px; gap: 8px; }
+ .carousel-thumbnails img { height: 54px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .carousel-slide:not([hidden]) { animation: none; }
+ .carousel-arrow, .carousel-thumbnails button { transition: none; }
+}
