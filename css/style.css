@@ -147,3 +147,5 @@ a.button { text-decoration: none; }
  .carousel-slide:not([hidden]) { animation: none; }
  .carousel-arrow, .carousel-thumbnails button { transition: none; }
 }
+
+.gallery-heading { justify-content: center; text-align: center; }
