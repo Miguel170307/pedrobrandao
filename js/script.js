@@ -29,3 +29,32 @@ stage.addEventListener('keydown', (event) => {
     showSlide(activeSlide + (event.key === 'ArrowRight' ? 1 : -1));
   }
 });
+
+// Reveal each block once. Content remains readable if animation is unavailable.
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const revealTargets = document.querySelectorAll(
+  '.hero-copy, .hero-photo, .about-content > div, .achievements-heading, .titles-grid li, .gallery-heading, .carousel, .contact-content > div'
+);
+let revealObserver;
+
+function stopReveals() {
+  revealObserver?.disconnect();
+  revealTargets.forEach((element) => element.classList.remove('scroll-reveal'));
+}
+
+if (!motionPreference.matches && 'IntersectionObserver' in window) {
+  const cards = [...document.querySelectorAll('.titles-grid li')];
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const cardIndex = cards.indexOf(entry.target);
+      entry.target.style.setProperty('--reveal-delay', `${Math.max(0, cardIndex) * 70}ms`);
+      entry.target.classList.add('scroll-reveal');
+      revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.08 });
+  revealTargets.forEach((element) => revealObserver.observe(element));
+}
+motionPreference.addEventListener('change', (event) => {
+  if (event.matches) stopReveals();
+});
